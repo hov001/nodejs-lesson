@@ -26,7 +26,7 @@ console.log(
 );
 ```
 
-[Solution](./arraysObjectsFunctions/fakeMap.js)
+[Solution](./arraysObjectsFunctions/mapAndSliceImplement/fakeMap.js)
 
 ---
 
@@ -37,4 +37,4 @@ console.log([1, 2, 3].fakeSlice(-1));
 console.log([1, 2, 3].slice(-1));
 ```
 
-[Solution](./arraysObjectsFunctions/fakeSlice.js)
+[Solution](./arraysObjectsFunctions/mapAndSliceImplement/fakeSlice.js)
