@@ -1,5 +1,6 @@
 Array.prototype.fakeFlat = function (depth = 1) {
   const newArr = [];
+  const numberDepth = Number(depth) || 0;
 
   function recursiveFlat(array, initialStep) {
     for (let i = 0; i < array.length; i++) {
@@ -9,15 +10,13 @@ Array.prototype.fakeFlat = function (depth = 1) {
         newArr.push(array[i]);
       }
     }
-
-    return null;
   }
 
-  recursiveFlat(this, depth);
+  recursiveFlat(this, numberDepth);
 
   return newArr;
 };
 
-console.log([1, [2, 3, [4]], [[5, 6], 7]].fakeFlat(Infinity));
+console.log([1, [2, 3, [4]], [[5, 6], 7]].fakeFlat("a"));
 
-console.log([1, [2, 3, [4]], [[5, 6], 7]].flat(Infinity));
+console.log([1, [2, 3, [4]], [[5, 6], 7]].flat("a"));
