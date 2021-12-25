@@ -38,3 +38,18 @@ console.log([1, 2, 3].slice(-1));
 ```
 
 [Solution](./arraysObjectsFunctions/mapAndSliceImplement/fakeSlice.js)
+
+## JS: Task 2. Flatten an array
+
+Write a program to flatten an array.
+
+**Note**: Don't use Array.flat function
+
+```js
+const array = [1, [2, 3, [4]], [[5, 6], 7]];
+const flatArray = [1, 2, 3, 4, 5, 6, 7];
+```
+
+[Solution](./arraysObjectsFunctions/flatImplementation/fakeFlat.js)
+
+---

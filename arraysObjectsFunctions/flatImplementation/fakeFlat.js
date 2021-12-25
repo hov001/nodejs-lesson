@@ -4,10 +4,10 @@ Array.prototype.fakeFlat = function (depth = 1) {
   function recursiveFlat(array, initialStep) {
     for (let i = 0; i < array.length; i++) {
       if (Array.isArray(array[i]) && initialStep > 0) {
-        return recursiveFlat(array[i], initialStep - 1);
+        recursiveFlat(array[i], initialStep - 1);
+      } else {
+        newArr.push(array[i]);
       }
-
-      newArr.push(array[i]);
     }
 
     return null;
@@ -18,6 +18,6 @@ Array.prototype.fakeFlat = function (depth = 1) {
   return newArr;
 };
 
-console.log([1, 2, 3, [6, 7, [10, 11, [12]]]].fakeFlat(Infinity));
+console.log([1, [2, 3, [4]], [[5, 6], 7]].fakeFlat(Infinity));
 
-console.log([1, 2, 3, [6, 7, [10, 11, [12]]]].flat(Infinity));
+console.log([1, [2, 3, [4]], [[5, 6], 7]].flat(Infinity));
