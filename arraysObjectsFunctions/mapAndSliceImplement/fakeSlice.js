@@ -3,6 +3,10 @@ Array.prototype.fakeSlice = function (begin, end) {
     length = this.length,
     beg = Number(begin) || 0;
 
+  if (begin === 0 && end === 0) {
+    return newArr;
+  }
+
   let size = 0,
     start = beg >= 0 ? beg : length + beg,
     sliceTo = end ? end : length;
@@ -11,9 +15,7 @@ Array.prototype.fakeSlice = function (begin, end) {
     sliceTo = length + end;
   }
 
-  if (begin !== 0 && end !== 0) {
-    size = sliceTo - start;
-  }
+  size = sliceTo - start;
 
   for (i = 0; i < size; i++) {
     newArr[i] = this[start + i];
@@ -22,5 +24,5 @@ Array.prototype.fakeSlice = function (begin, end) {
   return newArr;
 };
 
-console.log([1, 2, 3, 4, 5].fakeSlice(1, 2));
-console.log([1, 2, 3, 4, 5].slice(1, 2));
+console.log([1, 2, 3, 4, 5].fakeSlice(0, 0));
+console.log([1, 2, 3, 4, 5].slice(0, 0));
