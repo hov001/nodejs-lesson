@@ -3,17 +3,17 @@ Array.prototype.fakeSlice = function (begin, end) {
     length = this.length,
     beg = Number(begin) || 0;
 
-  let size,
+  let size = 0,
     start = beg >= 0 ? beg : length + beg,
     sliceTo = end ? end : length;
 
-  if (begin === 0 && end === 0) {
-    sliceTo = 0;
-  } else if (end < 0) {
+  if (end < 0) {
     sliceTo = length + end;
   }
 
-  size = sliceTo - start;
+  if (begin !== 0 && end !== 0) {
+    size = sliceTo - start;
+  }
 
   for (i = 0; i < size; i++) {
     newArr[i] = this[start + i];
@@ -22,5 +22,5 @@ Array.prototype.fakeSlice = function (begin, end) {
   return newArr;
 };
 
-console.log([1, 2, 3, 4, 5].fakeSlice(0, 0));
-console.log([1, 2, 3, 4, 5].slice(0, 0));
+console.log([1, 2, 3, 4, 5].fakeSlice(1, 2));
+console.log([1, 2, 3, 4, 5].slice(1, 2));
