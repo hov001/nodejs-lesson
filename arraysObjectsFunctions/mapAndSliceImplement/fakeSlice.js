@@ -1,13 +1,15 @@
-Array.prototype.fakeSlice = function (begin = 0, end) {
+Array.prototype.fakeSlice = function (begin, end) {
   const newArr = [],
     length = this.length,
     beg = Number(begin) || 0;
 
   let size,
-    start = beg > 0 ? beg : length + beg,
+    start = beg >= 0 ? beg : length + beg,
     sliceTo = end ? end : length;
 
-  if (end < 0) {
+  if (begin === 0 && end === 0) {
+    sliceTo = 0;
+  } else if (end < 0) {
     sliceTo = length + end;
   }
 
@@ -20,5 +22,5 @@ Array.prototype.fakeSlice = function (begin = 0, end) {
   return newArr;
 };
 
-console.log([1, 2, 3].fakeSlice(0, 0));
-console.log([1, 2, 3].slice(0, 0));
+console.log([1, 2, 3, 4, 5].fakeSlice(0, 0));
+console.log([1, 2, 3, 4, 5].slice(0, 0));
